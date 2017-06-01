@@ -4,9 +4,15 @@ using System.Collections;
 public class LevelManager : MonoBehaviour {
 
 	float loadDelay = 3f;
+	public bool autoLoad;
 	
 	void Start(){
-		Invoke("LoadNextLevel",loadDelay);
+		//autoload next level after delay (splash screen)
+		// Never going back to splash screen so ditched singleton pattern
+		if(autoLoad == true){
+			Invoke("LoadNextLevel",loadDelay);
+		}
+		
 	}
 	
 	public void LoadLevel(string name){
