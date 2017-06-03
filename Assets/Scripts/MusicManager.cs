@@ -20,6 +20,7 @@ public class MusicManager : MonoBehaviour {
 	void Start(){
 		// get audiosource component from same object
 		audioSource = GetComponent<AudioSource>();
+		audioSource.volume = PlayerPrefsManager.GetMasterVolume();
 	}
 	
 	// Update is called once per frame
@@ -36,5 +37,10 @@ public class MusicManager : MonoBehaviour {
 			audioSource.loop = true;
 			audioSource.Play();
 		}
+	}
+	
+	public void VolumeControl(float volume){
+		audioSource.volume = volume;
+			
 	}
 }

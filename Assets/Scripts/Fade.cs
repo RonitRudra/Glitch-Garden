@@ -14,7 +14,6 @@ public class Fade : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Time.timeSinceLevelLoad >= fadetime){
-			Debug.Log("D");
 			panel.gameObject.SetActive(false);
 		}
 		

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerPrefsManager : MonoBehaviour {
 	// Unity Player Prefs has no Bool so use 1 True and 0 False
+	// Clamp ranges to prevent slider malfunction
 
 	const string MASTER_VOLUME_KEY = "master_volume";
 	const string DIFFICULTY_KEY = "difficulty";
@@ -12,7 +13,9 @@ public class PlayerPrefsManager : MonoBehaviour {
 		if (volume >0f && volume < 1f){
 			PlayerPrefs.SetFloat (MASTER_VOLUME_KEY,volume);
 		} else {
-			Debug.LogError ("Master Volume of Out of Range");
+			volume = Mathf.Clamp(volume,0f,1f);
+			PlayerPrefs.SetFloat (MASTER_VOLUME_KEY,volume);
+			//Debug.LogError ("Master Volume of Out of Range");
 		}
 	}
 	
@@ -40,10 +43,12 @@ public class PlayerPrefsManager : MonoBehaviour {
 	}
 	
 	public static void SetDifficulty(float difficulty){
-		if(difficulty >=0f && difficulty <= 1f){
+		if(difficulty >=1f && difficulty <= 3f){
 			PlayerPrefs.SetFloat (DIFFICULTY_KEY,difficulty);
 		}else{
-			Debug.LogError("Difficulty out of range");
+			difficulty = Mathf.Clamp(difficulty,1f,3f);
+			PlayerPrefs.SetFloat (DIFFICULTY_KEY,difficulty);
+			//Debug.LogError("Difficulty out of range");
 		}
 	}
 	
