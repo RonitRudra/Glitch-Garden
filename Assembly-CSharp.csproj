@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Fade.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
      <Compile Include="Assets\Scripts\MusicManager.cs" />
+     <Compile Include="Assets\Scripts\PlayerPrefsManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Development/Unity/4.6.9/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.9/Standalone/UnityEngine.UI.dll</HintPath>
  </Reference>
